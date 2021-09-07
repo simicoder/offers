@@ -1,0 +1,12 @@
+{
+  "name": "offers",
+  "private": true,
+  "scripts": {
+    "start": "lerna run start",
+    "build-client": "lerna run build --scope=client",
+    "dev": "lerna run dev"
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
+}
