@@ -1,6 +1,11 @@
 {
-  "name": "offers",
+  "name": "root",
   "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
   "scripts": {
     "start": "lerna run start",
     "build-client": "lerna run build --scope=client",
