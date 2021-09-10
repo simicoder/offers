@@ -42,5 +42,5 @@ export type User = {
   readonly name: string;
   readonly company: string;
   readonly email: string;
-  readonly password: string;
+  password?: string;
 };

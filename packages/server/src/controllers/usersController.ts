@@ -3,6 +3,7 @@ import { validateLogin, validateRegister, validateChangeUserInfo } from '../vali
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { findUserByEmail, createUser, changeUserData } from '../services/users';
+import type { User } from '@offers/types';
 
 export const login = async (req: Request, res: Response) => {
   const { error } = validateLogin(req.body);
@@ -45,6 +46,8 @@ export const register = async (req: Request, res: Response) => {
   const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
   const user = await createUser({ ...req.body, password: hashedPassword });
+
+  delete (user as User).password;
 
   res.status(201).json(user);
 };
