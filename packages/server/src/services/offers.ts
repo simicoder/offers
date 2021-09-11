@@ -3,9 +3,10 @@ import type { Offer, Query } from '@offers/types';
 
 const prisma = new PrismaClient();
 
-export const fetchMaxFiftyOffers = async () => {
+export const fetchOffers = async (page?: string) => {
   const offers = await prisma.offer.findMany({
-    take: 50,
+    skip: (page && (parseInt(page) - 1) * 20) || 0,
+    take: 20,
   });
 
   if (offers) {

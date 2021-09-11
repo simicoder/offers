@@ -1,5 +1,5 @@
 import {
-  fetchMaxFiftyOffers,
+  fetchOffers,
   fetchSearchedOffers,
   fetchSingleOffer,
   addOffer,
@@ -12,8 +12,8 @@ import { validateOffer } from '../validation';
 import type { Request, Response } from 'express';
 import slug from 'slug';
 
-export const getFiftyOffers = async (req: Request, res: Response) => {
-  res.status(200).json(await fetchMaxFiftyOffers());
+export const getOffers = async (req: Request, res: Response) => {
+  res.status(200).json(await fetchOffers(req.params.page));
 };
 
 export const getSearchedOffers = async (req: Request, res: Response) => {

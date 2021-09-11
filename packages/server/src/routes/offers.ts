@@ -1,6 +1,7 @@
 import express from 'express';
 import { catchAsync } from '../middlewares/errors';
 import {
+  getOffers,
   getSearchedOffers,
   getSingleOffer,
   createOffer,
@@ -15,6 +16,8 @@ import { validateFilters } from '../middlewares/validateFilters';
 
 const router = express.Router();
 
+router.get('/', validateFilters, catchAsync(getOffers));
+router.get('/page/:page', validateFilters, catchAsync(getOffers));
 router.get('/search', validateFilters, catchAsync(getSearchedOffers));
 router.get('/:id', catchAsync(getSingleOffer));
 router.post('/add', validateToken, validateUser, catchAsync(createOffer));
