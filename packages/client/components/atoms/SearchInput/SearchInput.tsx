@@ -25,7 +25,7 @@ export const SearchInput = ({
       {...props}
       {...register(label, { required })}
     />
-    <span>
+    <button type="submit">
       <SearchIcon
         className="h-6 w-6 text-gray-400 hover:text-blue-400 transition duration-100 cursor-pointer"
         fill="none"
@@ -39,6 +39,6 @@ export const SearchInput = ({
           d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
         />
       </SearchIcon>
-    </span>
+    </button>
   </div>
 );
