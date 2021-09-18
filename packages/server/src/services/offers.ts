@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import type { Offer, Query } from '@offers/types';
+import type { OfferType, Query } from '@offers/types';
 
 const prisma = new PrismaClient();
 
@@ -76,7 +76,7 @@ export const fetchSingleOffer = async (offerId: string) => {
 
 type Experience = 'junior' | 'mid' | 'senior';
 
-export const addOffer = (userId: number, data: Offer & { skills: string }) => {
+export const addOffer = (userId: number, data: OfferType & { skills: string }) => {
   return prisma.offer.create({
     data: {
       ...data,
@@ -85,7 +85,7 @@ export const addOffer = (userId: number, data: Offer & { skills: string }) => {
   });
 };
 
-export const changeOffer = (offerId: string, data: Offer & { skills: string }) => {
+export const changeOffer = (offerId: string, data: OfferType & { skills: string }) => {
   return prisma.offer.update({
     where: { id: offerId },
     data: { ...data },

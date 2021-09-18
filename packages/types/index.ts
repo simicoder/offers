@@ -1,4 +1,4 @@
-export type Offer = {
+export type OfferType = {
   readonly id: string;
   readonly published_at: any;
   readonly company_name: string;
