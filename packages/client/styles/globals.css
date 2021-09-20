@@ -10,6 +10,9 @@ body {
     Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background-color: #181818;
   color: rgb(238, 238, 238);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 a {
