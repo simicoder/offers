@@ -20,7 +20,7 @@ router.get('/', validateFilters, catchAsync(getOffers));
 router.get('/page/:page', validateFilters, catchAsync(getOffers));
 router.get('/search', validateFilters, catchAsync(getSearchedOffers));
 router.get('/:id', catchAsync(getSingleOffer));
-router.post('/add', validateToken, validateUser, catchAsync(createOffer));
+router.post('/new', validateToken, validateUser, catchAsync(createOffer));
 router.delete('/:id', validateToken, validateUser, catchAsync(deleteOffer));
 router.put('/:id', validateToken, validateUser, catchAsync(editOffer));
 router.get('/myoffers/:id', validateToken, validateUser, catchAsync(getUserOffer));
