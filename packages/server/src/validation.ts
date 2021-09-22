@@ -35,11 +35,15 @@ export const validateChangeUserInfo = (data: Request) => {
 
 export const validateOffer = (data: Request) => {
   const schema = Joi.object({
+    id: Joi.string(),
     title: Joi.string().required().min(6).max(150),
     city: Joi.string().required().min(3).max(35),
     salary: Joi.number().required().min(3).max(99999),
     body: Joi.string().required().min(10),
     skills: Joi.string().required().min(2),
+    company_name: Joi.string(),
+    published_at: Joi.string(),
+    userId: Joi.number(),
     company_url: Joi.string().optional().allow(''),
   });
 

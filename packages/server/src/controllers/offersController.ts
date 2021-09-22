@@ -10,7 +10,6 @@ import {
 } from '../services/offers';
 import { validateOffer } from '../validation';
 import type { Request, Response } from 'express';
-import slug from 'slug';
 
 export const getOffers = async (req: Request, res: Response) => {
   res.status(200).json(await fetchOffers(req.params.page));
@@ -34,7 +33,7 @@ export const createOffer = async (req: Request, res: Response) => {
     await addOffer(req.user!.id, {
       ...req.body,
       company_name: req.user!.company,
-      id: slug(`${req.user!.company} ${req.body.title} ${req.body.city}`),
+      id: `${req.user!.company}-${req.body.title}-${req.body.city}`,
     }),
   );
 };
@@ -61,7 +60,7 @@ export const editOffer = async (req: Request, res: Response) => {
     return res.status(200).json(
       await changeOffer(req.params.id, {
         ...req.body,
-        id: slug(`${req.user!.company} ${req.body.title} ${req.body.city}`),
+        id: `${req.user!.company}-${req.body.title}-${req.body.city}`,
       }),
     );
   }
