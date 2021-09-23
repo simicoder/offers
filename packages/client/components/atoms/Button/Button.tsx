@@ -9,7 +9,7 @@ type Button = {
 export const Button = memo<Button>(({ type, onClick, children }) => {
   return (
     <button
-      className="w-full py-3 mt-6 font-medium tracking-widest text-white uppercase bg-black shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none"
+      className="md:w-96 p-3 m-6 font-medium tracking-widest rounded-md text-white uppercase bg-main shadow-lg focus:outline-none hover:bg-hover hover:shadow-none"
       type={type}
       onClick={onClick}
     >
