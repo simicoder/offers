@@ -17,7 +17,6 @@ import { validateFilters } from '../middlewares/validateFilters';
 const router = express.Router();
 
 router.get('/', validateFilters, catchAsync(getOffers));
-router.get('/page/:page', validateFilters, catchAsync(getOffers));
 router.get('/search', validateFilters, catchAsync(getSearchedOffers));
 router.get('/:id', catchAsync(getSingleOffer));
 router.post('/new', validateToken, validateUser, catchAsync(createOffer));

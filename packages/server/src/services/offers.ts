@@ -3,10 +3,10 @@ import type { OfferType, Query } from '@offers/types';
 
 const prisma = new PrismaClient();
 
-export const fetchOffers = async (page?: string) => {
+export const fetchOffers = async (query: Query) => {
   const offers = await prisma.offer.findMany({
-    skip: (page && (parseInt(page) - 1) * 20) || 0,
-    take: 20,
+    skip: (query.page && (parseInt(query.page) - 1) * 50) || 0,
+    take: 50,
   });
 
   if (offers) {
@@ -73,8 +73,6 @@ export const fetchSingleOffer = async (offerId: string) => {
     };
   }
 };
-
-type Experience = 'junior' | 'mid' | 'senior';
 
 export const addOffer = (userId: number, data: OfferType & { skills: string }) => {
   return prisma.offer.create({

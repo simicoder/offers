@@ -10,13 +10,14 @@ import {
 } from '../services/offers';
 import { validateOffer } from '../validation';
 import type { Request, Response } from 'express';
+import type { Query } from '@offers/types';
 
-export const getOffers = async (req: Request, res: Response) => {
-  res.status(200).json(await fetchOffers(req.params.page));
+export const getOffers = async (req: Request<{}, {}, {}, Query>, res: Response) => {
+  res.status(200).json(await fetchOffers(req.query));
 };
 
-export const getSearchedOffers = async (req: Request, res: Response) => {
-  res.status(200).json(await fetchSearchedOffers(req.query as any));
+export const getSearchedOffers = async (req: Request<{}, {}, {}, Query>, res: Response) => {
+  res.status(200).json(await fetchSearchedOffers(req.query));
 };
 
 export const getSingleOffer = async (req: Request, res: Response) => {
