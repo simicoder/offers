@@ -1,4 +1,10 @@
+#workers
+sw.js
+sw.js*
+workbox*
+
 /node_modules
+
 .tmp
 .idea
 .idea/
@@ -74,3 +80,4 @@ apps/www/.next
 !.yarn/sdks
 !.yarn/versions
 .pnp.*
+

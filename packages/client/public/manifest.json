@@ -1,7 +1,7 @@
 {
   "theme_color": "#282827",
   "background_color": "#f7f6f6",
-  "display": "fullscreen",
+  "display": "standalone",
   "scope": "/",
   "start_url": "/",
   "name": "offers",
