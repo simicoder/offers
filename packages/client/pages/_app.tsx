@@ -5,7 +5,10 @@ import { useRouter } from 'next/router';
 import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
 import NextNprogress from 'nextjs-progressbar';
-import { SnackbarProvider } from 'notistack';
+import { MainProvider } from '../context/MainContext';
+import { OffersProvider } from '../context/OffersContext';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const meta = {
   title: 'Offers',
@@ -16,6 +19,7 @@ export const titleTemplate = `%s | ${meta.title}`;
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { asPath } = useRouter();
+
   return (
     <>
       <DefaultSeo
@@ -61,11 +65,27 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png" />
         <link rel="manifest" href="/manifest.json" />
       </Head>
-      <SnackbarProvider maxSnack={3}>
-        <NextNprogress color="#2067ff" startPosition={0.3} stopDelayMs={200} height={3} />
 
-        <Component {...pageProps} />
-      </SnackbarProvider>
+      <MainProvider>
+        <OffersProvider>
+          <NextNprogress color="#2067ff" startPosition={0.3} stopDelayMs={200} height={3} />
+
+          <ToastContainer
+            position="bottom-left"
+            autoClose={2000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+          />
+
+          <Component {...pageProps} />
+        </OffersProvider>
+      </MainProvider>
     </>
   );
 }
