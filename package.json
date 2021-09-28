@@ -9,7 +9,9 @@
   "scripts": {
     "start": "lerna run start",
     "build-client": "lerna run build --scope=client",
-    "dev": "lerna run dev"
+    "build-server": "lerna run build --scope=server",
+    "dev": "lerna run dev",
+    "heroku-postbuild": "lerna run build --scope=server"
   },
   "devDependencies": {
     "lerna": "^4.0.0"
