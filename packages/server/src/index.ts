@@ -15,6 +15,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+app.set('trust proxy', 1);
+
 const origin =
   process.env.NODE_ENV === 'production' ? process.env.CLIENT_URL : 'http://localhost:3000';
 
