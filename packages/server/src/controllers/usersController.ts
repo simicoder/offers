@@ -27,7 +27,8 @@ export const login = async (req: Request, res: Response) => {
   res
     .cookie('token', token, {
       httpOnly: true,
-      sameSite: 'lax',
+      sameSite: 'none',
+      secure: true,
     })
     .json({ message: 'Logged in!' });
 };
