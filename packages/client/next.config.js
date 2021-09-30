@@ -8,7 +8,18 @@ module.exports = withPWA({
     register: true,
     skipWaiting: true,
   },
-  ack(config) {
+  async rewrites() {
+    return [
+      {
+        source: '/:path*',
+        destination:
+          process.env.NODE_ENV === 'production'
+            ? 'https://offers-backend.herokuapp.com/:path*'
+            : 'http://localhost:5000/:path*',
+      },
+    ];
+  },
+  webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
       use: ['@svgr/webpack'],
