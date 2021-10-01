@@ -1,4 +1,5 @@
 const withPWA = require('next-pwa');
+const path = require('path');
 
 /** @type {import('next').NextConfig} */
 
@@ -11,11 +12,11 @@ module.exports = withPWA({
   async rewrites() {
     return [
       {
-        source: '/:path*',
+        source: '/api/:path*',
         destination:
           process.env.NODE_ENV === 'production'
-            ? 'https://offers-backend.herokuapp.com/:path*'
-            : 'http://localhost:5000/:path*',
+            ? 'https://offers-backend.herokuapp.com/api/:path*'
+            : 'http://localhost:5000/api/:path*',
       },
     ];
   },

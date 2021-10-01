@@ -28,5 +28,5 @@ export const inputValidation = {
 
 export const BASIC_API_URL =
   process.env.NODE_ENV === 'production'
-    ? 'https://offers-backend.herokuapp.com'
-    : 'http://localhost:5000';
+    ? 'https://offers-backend.herokuapp.com/api'
+    : 'http://localhost:5000/api';

@@ -27,8 +27,8 @@ app.use(
   }),
 );
 
-app.use('/users', users);
-app.use('/offers', offers);
+app.use('/api/users', users);
+app.use('/api/offers', offers);
 
 app.use(notFound);
 app.use(catchErrors);
