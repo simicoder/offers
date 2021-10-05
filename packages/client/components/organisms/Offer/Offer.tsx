@@ -84,7 +84,10 @@ export const Offer = memo<SingleOfferProps>(({ offer }) => {
 
         <div className="flex flex-row justify-center items-center flex-wrap">
           {offer.skills.map((skill) => (
-            <div className="m-2 flex flex-row items-center justify-center bg-main p-2 rounded-full">
+            <div
+              key={skill.name}
+              className="m-2 flex flex-row items-center justify-center bg-main p-2 rounded-full"
+            >
               {' '}
               {skill.name}{' '}
             </div>

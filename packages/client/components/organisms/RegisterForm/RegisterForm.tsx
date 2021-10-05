@@ -11,12 +11,7 @@ import { toast } from 'react-toastify';
 import { BASIC_API_URL } from '../../../lib/utils/consts';
 
 export const RegisterForm = () => {
-  const {
-    handleSubmit,
-    formState: { errors },
-    register,
-    reset,
-  } = useForm({
+  const { handleSubmit, register, reset } = useForm({
     reValidateMode: 'onBlur',
   });
 
