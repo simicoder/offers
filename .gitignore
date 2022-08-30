@@ -5,6 +5,8 @@ workbox*
 
 /node_modules
 
+yarn.lock
+
 .tmp
 .idea
 .idea/
